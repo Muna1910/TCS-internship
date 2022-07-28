@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color: rgba(105, 153, 225, 0.255); }
+
+form{width:550px;margin:35px auto 100px;display:block;float:none;}
+// .mat-form-field{width:100%;}
+.misc-bottom-padding{margin:8px 0 20px;}
+.misc-bottom-padding mat-label{margin-right:15px;}
+.title-center{margin:0 auto;}
+.button-wrapper{margin-top:10px;}
+

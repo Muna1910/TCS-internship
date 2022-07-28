@@ -1,0 +1,74 @@
+<form [formGroup]="form">
+    <mat-card>
+        <div class="intro">
+        <mat-card-title>Registration Form</mat-card-title>
+        <mat-card-subtitle>* Please fill in the required fields</mat-card-subtitle>
+        </div>
+
+    <div  class="field1-2">
+    
+
+    <div>
+    <mat-form-field class="fullname" appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name" placeholder="Full name">
+    </mat-form-field>
+    </div>
+
+    </div> 
+
+ 
+    <div class="field2-3">
+
+        <div>
+        <mat-form-field class="mobile" appearance="outline">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+44 &nbsp;</span>
+            <input formControlName="mobile" type="tel" matInput placeholder="7XXX-XXXXXX">
+            <mat-error *ngIf="form.controls['mobile'].hasError('required')">{{getErrorMobileMessage()}}</mat-error>
+            <mat-icon matSuffix>mode_edit</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="email" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                       placeholder="Ex. pat@example.com">
+                <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="form.controls['email'].hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+        </div>
+      </div>
+
+
+
+
+      <div class="example-container">
+        <mat-form-field class="password1"appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <mat-error *ngIf="form.controls['password'].hasError('required')">{{getErrorPasswordMessage()}}</mat-error>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+    </div>
+
+      <mat-card-actions align="end"> 
+        <button class="example-button-row" mat-button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" (click)="onSubmit()">Register</button>
+        <button button class="example-button-row" mat-button mat-raised-button color="warn"  type="reset" (click)="onReset()" mat-button>Cancel</button>
+      </mat-card-actions>
+      
+
+    </mat-card>
+</form>
+
+<div *ngIf="submitted">
+  Congratulations! Registration is successful.
+</div>
