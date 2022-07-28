@@ -17,8 +17,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatRadioModule } from '@angular/material/radio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
@@ -26,6 +28,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 
 
 
@@ -38,6 +41,10 @@ import { EmployeeComponent } from './employee/employee.component';
     EmployeeComponent,
   ],
   imports: [
+    MatNativeDateModule,
+    MatRippleModule,
+    MatDatepickerModule,
+    MatSidenavModule,
     MatToolbarModule,
     HttpClientModule,
     MatInputModule,
